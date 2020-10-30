@@ -39,16 +39,19 @@ def open_movie_picker_modal(body, ack, client, logger):
 
 
 @app.view("select_movie")
-def handle_submission(ack, body, client, view):
+def handle_submission(ack, body, client, view, logger):
     selected_movie_id = view.get('state', {}).get('values', {}).\
         get('selected_movie', {}).get('static_select-action', {}).\
         get('selected_option', {}).get('value', {})
     user = body["user"]["id"]
     ack()
-    movie_details = get_movie_details(selected_movie_id)
-    client.chat_postMessage(
-        channel=user,
-        blocks=get_movie_details_layout(**movie_details))
+    try:
+        movie_details = get_movie_details(selected_movie_id)
+        client.chat_postMessage(
+            channel=user,
+            blocks=get_movie_details_layout(**movie_details))
+    except Exception as e:
+        logger.error(f"Error fetching movie details: {e}")
 
 
 # Start your app

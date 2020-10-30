@@ -9,18 +9,15 @@ def get_movie_details(movie_id):
     query_params = {
         "api_key": TMDB_API_KEY
     }
-    try:
-        response = requests.get(
-            API_URL, params=query_params, timeout=MAX_TIMEOUT_SEC)
-        response.raise_for_status()
-        movie_details = {
-            "title": response.json().get("title"),
-            "release_date": response.json().get("release_date"),
-            "overview": response.json().get("overview"),
-            "poster_path": response.json().get("poster_path")
-        }
-    except requests.exceptions.RequestException as e:
-        print(str(e))
+    response = requests.get(
+        API_URL, params=query_params, timeout=MAX_TIMEOUT_SEC)
+    response.raise_for_status()
+    movie_details = {
+        "title": response.json().get("title", "-"),
+        "release_date": response.json().get("release_date"),
+        "overview": response.json().get("overview", ""),
+        "poster_path": response.json().get("poster_path", "")
+    }
     return movie_details
 
 

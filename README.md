@@ -5,8 +5,7 @@
   - Get Title, Overview, Release Date and Poster Image as message within Slack
 
 ## License
-  - This app is released under GNU GPL v3 License
-  - Please read the LICENSE file in case you are not familiar with the provisions of GNU GPL v3 License
+  - This app is released under [GNU GPL v3 License](./LICENSE)
 
 ## Tech
   - This app is built using Python 3.6 and [Bolt](https://slack.dev/bolt-python/concepts)
@@ -20,7 +19,7 @@
     $pip3 install -r requirements.txt
     ```
   - Install and enable [flake8](https://pypi.org/project/flake8/) linter
-  - Setup ngrok to expose public endpoint from local as mentioned [here]((https://api.slack.com/start/building/bolt-python#ngrok))
+  - Setup ngrok to expose public endpoint from local as mentioned [here]((https://api.slack.com/start/building/bolt-python#ngrok)). Use port 3000
   - Set below environment variables -
     - **SLACK_BOT_TOKEN** Available from - _Features &rarr; OAuth & Permissions &rarr; OAuth Tokens & Redirect URLs &rarr; Bot User OAuth Access Token_ 
     - **SLACK_SIGNING_SECRET** Available from - _Settings &rarr; Basic Information &rarr; App Credentials &rarr; Signing Secret_
@@ -39,9 +38,9 @@
  Configure the below settings from the Slack App's [web console](https://api.slack.com/apps) -
   - **Enable App Home** from - _Features &rarr; App Home &rarr; Show Tabs &rarr; Home Tab_
   - **Enable Events** from - _Features &rarr; Event Subscriptions &rarr; Enable Events_
-    - Set Request Url - `https://<ngrock_public_url>/slack/events`  
+    - Set Request Url - `https://<ngrok_public_url>/slack/events`  
   - **Enable Interactivity & Shortcuts** from - _Features &rarr; Interactivity & Shortcuts_
-    - Set Request Url - `https://<ngrock_public_url>/slack/events`
+    - Set Request Url - `https://<ngrok_public_url>/slack/events`
   - Subscribe to **app_home_opened** from - _Features &rarr; Event Subscriptions &rarr; Subscribe to events on behalf of users &rarr; Add Workspace Event_
   - Grant **chat:write** permission from - _Features &rarr; OAuth & Permissions
  &rarr; Scopes &rarr; Add an OAuth Scope_

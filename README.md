@@ -14,7 +14,7 @@
 ## Env setup
   For local development
   - Setup virtual environment for this project using python3.6
-  - install dependencies mentioned in [requirements.txt](./requirements.txt) using pip3 in the created virtualenv
+  - Install dependencies mentioned in [requirements.txt](./requirements.txt) using pip3 in the created virtualenv
     ```
     $pip3 install -r requirements.txt
     ```
@@ -31,7 +31,7 @@
         ```
     - Inside the virtual environment,execute below command to start the app 
         ```
-        python app.py
+        python3 app.py
         ```
 
 ## Slack Settings

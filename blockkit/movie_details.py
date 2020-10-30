@@ -1,8 +1,11 @@
 import utils
 
+from tmdb.constants import TMDB_POSTER_PATH_BASE_URL
+
 
 def get_movie_details_layout(title, release_date, overview, poster_path):
     formatted_release_dt = utils.reformat_date_str(release_date)
+    full_poster_path_url = TMDB_POSTER_PATH_BASE_URL + poster_path
     movie_details_layout = [
         {
             "type": "section",
@@ -28,7 +31,7 @@ def get_movie_details_layout(title, release_date, overview, poster_path):
             },
             "accessory": {
                 "type": "image",
-                "image_url": f"https://image.tmdb.org/t/p/w600_and_h900_bestv2{poster_path}",
+                "image_url": full_poster_path_url,
                 "alt_text": title
             }
         }
